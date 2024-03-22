@@ -4,7 +4,7 @@
   "description": "Backend for Bookstore Application",
   "main": "dist/index.js",
   "engines": {
-    "node": "20.9.0"
+    "node": "18.x"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
