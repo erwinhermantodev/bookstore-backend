@@ -2,7 +2,8 @@ import { Pool } from "pg";
 import { Customer } from "../entities/Customer";
 
 const pool = new Pool({
-  connectionString: "postgres://postgres:postgres@localhost:5433/bookstore_db",
+  connectionString:
+    "postgres://postgres.idhksanzvgpvecyplzhw:0In8huQDbcnefH4r@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres",
 });
 
 export class CustomerRepository {

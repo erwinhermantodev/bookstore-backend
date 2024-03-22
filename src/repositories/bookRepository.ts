@@ -4,7 +4,8 @@ import { AppDataSource } from "../data-source";
 import { Repository } from "typeorm";
 
 const pool = new Pool({
-  connectionString: "postgres://postgres:postgres@localhost:5433/bookstore_db",
+  connectionString:
+    "postgres://postgres.idhksanzvgpvecyplzhw:0In8huQDbcnefH4r@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres",
 });
 
 export class BookRepository {
