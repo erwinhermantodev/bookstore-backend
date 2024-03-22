@@ -1,73 +1,248 @@
-Sure, I can provide you with sample `curl` commands for each endpoint. Here they are:
+### Backend API Endpoints:
 
-#### Books Endpoints
-1. **Fetch all books:**
+#### 1. Books Endpoints:
+
+##### Get All Books:
+
 ```bash
-curl http://localhost:5000/books
+curl -X GET https://bookstore-backend-alpha.vercel.app/books
 ```
 
-2. **Fetch book by ID (replace `<book_id>` with actual book ID):**
-```bash
-curl http://localhost:5000/books/<book_id>
+Example Response:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Book Title",
+    "writer": "Author Name",
+    "cover_image": "https://example.com/cover.jpg",
+    "point": 10,
+    "tags": ["fiction", "adventure"]
+  },
+  {
+    "id": 2,
+    "title": "Another Book",
+    "writer": "Another Author",
+    "cover_image": "https://example.com/another-cover.jpg",
+    "point": 15,
+    "tags": ["non-fiction", "history"]
+  }
+]
 ```
 
-3. **Create a new book:**
+##### Get Book by ID:
+
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"title":"New Book","writer":"Author","cover_image":"https://example.com/image.jpg","point":10,"tags":["fiction"]}' http://localhost:5000/books
+curl -X GET https://bookstore-backend-alpha.vercel.app/books/1
 ```
 
-4. **Update book (replace `<book_id>` with actual book ID):**
-```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"title":"Updated Title","writer":"Updated Author","cover_image":"https://example.com/updated_image.jpg","point":15,"tags":["fiction","novel"]}' http://localhost:5000/books/<book_id>
+Example Response:
+
+```json
+{
+  "id": 1,
+  "title": "Book Title",
+  "writer": "Author Name",
+  "cover_image": "https://example.com/cover.jpg",
+  "point": 10,
+  "tags": ["fiction", "adventure"]
+}
 ```
 
-5. **Delete book (replace `<book_id>` with actual book ID):**
+##### Create Book:
+
 ```bash
-curl -X DELETE http://localhost:5000/books/<book_id>
+curl -X POST https://bookstore-backend-alpha.vercel.app/books -d '{"title":"New Book","writer":"New Author","cover_image":"https://example.com/new-cover.jpg","point":20,"tags":["science","fiction"]}' -H "Content-Type: application/json"
 ```
 
-#### Customers Endpoints
-1. **Fetch all customers:**
-```bash
-curl http://localhost:5000/customers
+Example Response:
+
+```json
+{
+  "id": 3,
+  "title": "New Book",
+  "writer": "New Author",
+  "cover_image": "https://example.com/new-cover.jpg",
+  "point": 20,
+  "tags": ["science", "fiction"]
+}
 ```
 
-2. **Fetch customer by ID (replace `<customer_id>` with actual customer ID):**
+##### Update Book:
+
 ```bash
-curl http://localhost:5000/customers/<customer_id>
+curl -X PUT https://bookstore-backend-alpha.vercel.app/books/1 -d '{"title":"Updated Title","writer":"Updated Author","cover_image":"https://example.com/updated-cover.jpg","point":25,"tags":["fiction","mystery"]}' -H "Content-Type: application/json"
 ```
 
-3. **Create a new customer:**
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe"}' http://localhost:5000/customers
+Example Response:
+
+```json
+{
+  "id": 1,
+  "title": "Updated Title",
+  "writer": "Updated Author",
+  "cover_image": "https://example.com/updated-cover.jpg",
+  "point": 25,
+  "tags": ["fiction", "mystery"]
+}
 ```
 
-4. **Update customer (replace `<customer_id>` with actual customer ID):**
+##### Delete Book:
+
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"name":"Updated Name","points":150}' http://localhost:5000/customers/<customer_id>
+curl -X DELETE https://bookstore-backend-alpha.vercel.app/books/1
 ```
 
-5. **Delete customer (replace `<customer_id>` with actual customer ID):**
-```bash
-curl -X DELETE http://localhost:5000/customers/<customer_id>
+Example Response:
+
+```json
+{
+  "message": "Book deleted successfully"
+}
 ```
 
-#### Orders Endpoints
-1. **Fetch all orders:**
+#### 2. Customers Endpoints:
+
+##### Get All Customers:
+
 ```bash
-curl http://localhost:5000/orders
+curl -X GET https://bookstore-backend-alpha.vercel.app/customers
 ```
 
-2. **Create a new order (replace `<book_id>` with actual book ID):**
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"bookId":<book_id>}' http://localhost:5000/orders
+Example Response:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "points": 100
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "points": 150
+  }
+]
 ```
 
-3. **Cancel order (replace `<order_id>` with actual order ID):**
+##### Get Customer by ID:
+
 ```bash
-curl -X DELETE http://localhost:5000/orders/<order_id>
+curl -X GET https://bookstore-backend-alpha.vercel.app/customers/1
 ```
 
-Replace `<book_id>`, `<customer_id>`, and `<order_id>` with actual IDs when making requests.
+Example Response:
 
-These `curl` commands can be used to interact with your backend APIs from the command line.
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "points": 100
+}
+```
+
+##### Create Customer:
+
+```bash
+curl -X POST https://bookstore-backend-alpha.vercel.app/customers -d '{"name":"New Customer"}' -H "Content-Type: application/json"
+```
+
+Example Response:
+
+```json
+{
+  "id": 3,
+  "name": "New Customer",
+  "points": 100
+}
+```
+
+##### Update Customer:
+
+```bash
+curl -X PUT https://bookstore-backend-alpha.vercel.app/customers/1 -d '{"name":"Updated Name","points":120}' -H "Content-Type: application/json"
+```
+
+Example Response:
+
+```json
+{
+  "id": 1,
+  "name": "Updated Name",
+  "points": 120
+}
+```
+
+##### Delete Customer:
+
+```bash
+curl -X DELETE https://bookstore-backend-alpha.vercel.app/customers/1
+```
+
+Example Response:
+
+```json
+{
+  "message": "Customer deleted successfully"
+}
+```
+
+#### 3. Orders Endpoints:
+
+##### Get All Orders:
+
+```bash
+curl -X GET https://bookstore-backend-alpha.vercel.app/orders
+```
+
+Example Response:
+
+```json
+[
+  {
+    "id": 1,
+    "customerId": 1,
+    "bookId": 1,
+    "timestamp": "2024-03-30T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "customerId": 2,
+    "bookId": 2,
+    "timestamp": "2024-03-30T11:00:00Z"
+  }
+]
+```
+
+##### Create Order:
+
+```bash
+curl -X POST https://bookstore-backend-alpha.vercel.app/orders -d '{"bookId":1}' -H "Content-Type: application/json"
+```
+
+Example Response:
+
+```json
+{
+  "id": 3,
+  "customerId": 1,
+  "bookId": 1,
+  "timestamp": "2024-03-30T12:00:00Z"
+}
+```
+
+##### Cancel Order:
+
+```bash
+curl -X DELETE https://bookstore-backend-alpha.vercel.app/orders/1
+```
+
+Example Response:
+
+```json
+{
+  "message": "Order canceled successfully"
+}
+```
