@@ -1,0 +1,15 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5433,
+  "username": "postgres",
+  "password": "postgres",
+  "database": "bookstore_db",
+  "synchronize": false,
+  "logging": false,
+  "entities": ["src/entities/**/*.ts"],
+  "migrations": ["src/migrations/**/*.ts"],
+  "cli": {
+    "migrationsDir": "src/migrations"
+  }
+}
