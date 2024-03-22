@@ -6,11 +6,11 @@ import { Order } from "./entities/Order";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
-  port: 5433,
-  username: "postgres",
-  password: "postgres",
-  database: "bookstore_db",
+  host: "aws-0-ap-southeast-1.pooler.supabase.com",
+  port: 5432,
+  username: "postgres.idhksanzvgpvecyplzhw",
+  password: "0In8huQDbcnefH4r",
+  database: "postgres",
   synchronize: true,
   logging: false,
   entities: [Book, Customer, Order],
